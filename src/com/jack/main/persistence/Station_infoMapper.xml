@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.jack.main.persistence.Station_infoMapper" >
+
+  <select id="selectByPrimaryKey" resultType="Station_info" >
+    select `station_id` ,`station_fullname` ,`station_shortname` ,`station_x` ,`station_y` ,`station_description`  from station_info where  `station_id` = #{station_id}
+  </select>
+  
+  <select id="search" resultType="Station_info">
+    select `station_id` ,`station_fullname` ,`station_shortname` ,`station_x` ,`station_y` ,`station_description`  from station_info
+  </select>
+  
+  <insert id="insert" parameterType="com.jack.main.domain.Station_info" useGeneratedKeys="true" >
+    insert into station_info (`station_fullname` ,`station_shortname` ,`station_x` ,`station_y` ,`station_description` ) values (#{station_fullname},#{station_shortname},#{station_x},#{station_y},#{station_description})
+  </insert>
+  
+  <delete id="deleteByPrimaryKey">
+    delete from station_info where  `station_id` = #{station_id}
+  </delete>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jack.main.domain.Station_info" >
+    update station_info set `station_fullname` = #{station_fullname},`station_shortname` = #{station_shortname},`station_x` = #{station_x},`station_y` = #{station_y},`station_description` = #{station_description} where  `station_id` = #{station_id}
+  </update>
+  
+</mapper>

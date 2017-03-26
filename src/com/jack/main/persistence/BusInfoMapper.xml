@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.jack.main.persistence.BusInfoMapper" >
+
+  <select id="selectByPrimaryKey" resultType="BusInfo" >
+    select `bus_id` ,`bus_number` ,`bus_color` ,`seat_count` ,`bus_fullname` ,`bus_shortname`  from busInfo where  `bus_id` = #{bus_id}
+  </select>
+  
+  <select id="search" resultType="BusInfo">
+    select `bus_id` ,`bus_number` ,`bus_color` ,`seat_count` ,`bus_fullname` ,`bus_shortname`  from busInfo
+  </select>
+  
+  <insert id="insert" parameterType="com.jack.main.domain.BusInfo" useGeneratedKeys="true" >
+    insert into busInfo (`bus_number` ,`bus_color` ,`seat_count` ,`bus_fullname` ,`bus_shortname` ) values (#{bus_number},#{bus_color},#{seat_count},#{bus_fullname},#{bus_shortname})
+  </insert>
+  
+  <delete id="deleteByPrimaryKey">
+    delete from busInfo where  `bus_id` = #{bus_id}
+  </delete>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jack.main.domain.BusInfo" >
+    update busInfo set `bus_number` = #{bus_number},`bus_color` = #{bus_color},`seat_count` = #{seat_count},`bus_fullname` = #{bus_fullname},`bus_shortname` = #{bus_shortname} where  `bus_id` = #{bus_id}
+  </update>
+  
+</mapper>

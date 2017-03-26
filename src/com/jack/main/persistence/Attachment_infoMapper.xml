@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.jack.main.persistence.Attachment_infoMapper" >
+
+  <select id="selectByPrimaryKey" resultType="Attachment_info" >
+    select `attachment_id` ,`attachment_fullname` ,`attachment_address` ,`attachment_type` ,`attachment_moudle`  from attachment_info where  `attachment_id` = #{attachment_id}
+  </select>
+  
+  <select id="search" resultType="Attachment_info">
+    select `attachment_id` ,`attachment_fullname` ,`attachment_address` ,`attachment_type` ,`attachment_moudle`  from attachment_info
+  </select>
+  
+  <insert id="insert" parameterType="com.jack.main.domain.Attachment_info" useGeneratedKeys="true" >
+    insert into attachment_info (`attachment_fullname` ,`attachment_address` ,`attachment_type` ,`attachment_moudle` ) values (#{attachment_fullname},#{attachment_address},#{attachment_type},#{attachment_moudle})
+  </insert>
+  
+  <delete id="deleteByPrimaryKey">
+    delete from attachment_info where  `attachment_id` = #{attachment_id}
+  </delete>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jack.main.domain.Attachment_info" >
+    update attachment_info set `attachment_fullname` = #{attachment_fullname},`attachment_address` = #{attachment_address},`attachment_type` = #{attachment_type},`attachment_moudle` = #{attachment_moudle} where  `attachment_id` = #{attachment_id}
+  </update>
+  
+</mapper>

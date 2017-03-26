@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.jack.main.persistence.Line_infoMapper" >
+
+  <select id="selectByPrimaryKey" resultType="Line_info" >
+    select `line_id` ,`line_fullname` ,`line_shortname` ,`bus_id` ,`station_id` ,`station_order` ,`line_stationtime`  from line_info where  `line_id` = #{line_id}
+  </select>
+  
+  <select id="search" resultType="Line_info">
+    select `line_id` ,`line_fullname` ,`line_shortname` ,`bus_id` ,`station_id` ,`station_order` ,`line_stationtime`  from line_info
+  </select>
+  
+  <insert id="insert" parameterType="com.jack.main.domain.Line_info" useGeneratedKeys="true" >
+    insert into line_info (`line_fullname` ,`line_shortname` ,`bus_id` ,`station_id` ,`station_order` ,`line_stationtime` ) values (#{line_fullname},#{line_shortname},#{bus_id},#{station_id},#{station_order},#{line_stationtime})
+  </insert>
+  
+  <delete id="deleteByPrimaryKey">
+    delete from line_info where  `line_id` = #{line_id}
+  </delete>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jack.main.domain.Line_info" >
+    update line_info set `line_fullname` = #{line_fullname},`line_shortname` = #{line_shortname},`bus_id` = #{bus_id},`station_id` = #{station_id},`station_order` = #{station_order},`line_stationtime` = #{line_stationtime} where  `line_id` = #{line_id}
+  </update>
+  
+</mapper>

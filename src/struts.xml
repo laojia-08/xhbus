@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.locale" value="zh_CN" />
+	<constant name="struts.multipart.maxSize" value="20971520"/>
+
+	<package name="front" extends="json-default" namespace="/front">
+
+		<action name="businfo_*" class="busInfoAction" method="{1}">
+			<result name="result-json" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="result-jsp">/businfo/result.jsp</result>
+			<result name="index">/businfo/index.jsp</result>
+			<result name="intoUpdate">/businfo/update.jsp</result>
+		</action>
+
+		<action name="driver_info_*" class="driver_infoAction" method="{1}">
+			<result name="result-json" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="result-jsp">/driver_info/result.jsp</result>
+			<result name="index">/driver_info/index.jsp</result>
+			<result name="intoUpdate">/driver_info/update.jsp</result>
+		</action>
+
+		<action name="station_info_*" class="station_infoAction" method="{1}">
+			<result name="result-json" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="result-jsp">/station_info/result.jsp</result>
+			<result name="index">/station_info/index.jsp</result>
+			<result name="intoUpdate">/station_info/update.jsp</result>
+		</action>
+
+		<action name="line_info_*" class="line_infoAction" method="{1}">
+			<result name="result-json" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="result-jsp">/line_info/result.jsp</result>
+			<result name="index">/line_info/index.jsp</result>
+			<result name="intoUpdate">/line_info/update.jsp</result>
+		</action>
+
+		<action name="attachment_info_*" class="attachment_infoAction" method="{1}">
+			<result name="result-json" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="result-jsp">/attachment_info/result.jsp</result>
+			<result name="index">/attachment_info/index.jsp</result>
+			<result name="intoUpdate">/attachment_info/update.jsp</result>
+		</action>
+
+		<action name="admin_user_info_*" class="admin_user_infoAction" method="{1}">
+			<result name="result-json" type="json">
+				<param name="root">result</param>
+			</result>
+			<result name="result-jsp">/admin_user_info/result.jsp</result>
+			<result name="index">/admin_user_info/index.jsp</result>
+			<result name="intoUpdate">/admin_user_info/update.jsp</result>
+		</action>
+
+	</package>
+</struts>

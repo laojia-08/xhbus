@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.jack.main.persistence.Driver_infoMapper" >
+
+  <select id="selectByPrimaryKey" resultType="Driver_info" >
+    select `dirver_id` ,`dirver_name` ,`dirver_sex` ,`dirver_birthday` ,`dirver_age` ,`dirver_telephone` ,`dirver_weChat`  from driver_info where  `dirver_id` = #{dirver_id}
+  </select>
+  
+  <select id="search" resultType="Driver_info">
+    select `dirver_id` ,`dirver_name` ,`dirver_sex` ,`dirver_birthday` ,`dirver_age` ,`dirver_telephone` ,`dirver_weChat`  from driver_info
+  </select>
+  
+  <insert id="insert" parameterType="com.jack.main.domain.Driver_info" useGeneratedKeys="true" >
+    insert into driver_info (`dirver_name` ,`dirver_sex` ,`dirver_birthday` ,`dirver_age` ,`dirver_telephone` ,`dirver_weChat` ) values (#{dirver_name},#{dirver_sex},#{dirver_birthday},#{dirver_age},#{dirver_telephone},#{dirver_weChat})
+  </insert>
+  
+  <delete id="deleteByPrimaryKey">
+    delete from driver_info where  `dirver_id` = #{dirver_id}
+  </delete>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jack.main.domain.Driver_info" >
+    update driver_info set `dirver_name` = #{dirver_name},`dirver_sex` = #{dirver_sex},`dirver_birthday` = #{dirver_birthday},`dirver_age` = #{dirver_age},`dirver_telephone` = #{dirver_telephone},`dirver_weChat` = #{dirver_weChat} where  `dirver_id` = #{dirver_id}
+  </update>
+  
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.jack.main.persistence.Admin_user_infoMapper" >
+
+  <select id="selectByPrimaryKey" resultType="Admin_user_info" >
+    select `user_id` ,`user_loginname` ,`user_password` ,`user_realname` ,`user_telephone` ,`user_email` ,`user_sex`  from admin_user_info where  `user_id` = #{user_id}
+  </select>
+  
+  <select id="search" resultType="Admin_user_info">
+    select `user_id` ,`user_loginname` ,`user_password` ,`user_realname` ,`user_telephone` ,`user_email` ,`user_sex`  from admin_user_info
+  </select>
+  
+  <insert id="insert" parameterType="com.jack.main.domain.Admin_user_info" useGeneratedKeys="true" >
+    insert into admin_user_info (`user_loginname` ,`user_password` ,`user_realname` ,`user_telephone` ,`user_email` ,`user_sex` ) values (#{user_loginname},#{user_password},#{user_realname},#{user_telephone},#{user_email},#{user_sex})
+  </insert>
+  
+  <delete id="deleteByPrimaryKey">
+    delete from admin_user_info where  `user_id` = #{user_id}
+  </delete>
+  
+  <update id="updateByPrimaryKey" parameterType="com.jack.main.domain.Admin_user_info" >
+    update admin_user_info set `user_loginname` = #{user_loginname},`user_password` = #{user_password},`user_realname` = #{user_realname},`user_telephone` = #{user_telephone},`user_email` = #{user_email},`user_sex` = #{user_sex} where  `user_id` = #{user_id}
+  </update>
+  
+</mapper>
