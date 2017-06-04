@@ -7,65 +7,126 @@
   request.setAttribute("contextPath", contextPath);
 %>
 <!DOCTYPE>
-<html>
+<html><!--<![endif]-->
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>BusInfo</title>
-  <link type="text/css" rel="stylesheet" href="${contextPath}/css/bootstrap.min.css" >
-  <link type="text/css" rel="stylesheet" href="${contextPath}/css/bootstrap-responsive.min.css" >
-  <link type="text/css" rel="stylesheet" href="${contextPath}/plugin/buttons/css/font-awesome.min.css" />
-  <link type="text/css" rel="stylesheet" href="${contextPath}/plugin/buttons/css/buttons.css" />
-  <style type="text/css">
-    a:hover{color:white;text-decoration:none;}
-    table{border-collapse:separate;}
-  </style>
+  <meta charset="utf-8">
+  <title>首页 - 班车后台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+  <link href="css/site.css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
-<div class="container" style="margin-top:30px;">
-  <fieldset>
-    <legend>车辆信息</legend>
-    <div>
-      <a href="${contextPath}/front/businfo_index.action"
-         class="button button-rounded button-flat-action">
-        车辆信息
-      </a>
+<div class="container">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">班车后台</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="active">
+              <a href="index.jsp">首页</a>
+            </li>
+            <li>
+              <a href="${contextPath}/front/businfo_index.action">车辆管理</a>
+            </li>
+            <li>
+              <a href="${contextPath}/front/station_info_index.action">站点管理</a>
+            </li>
+            <li>
+              <a href="${contextPath}/front/line_info_index.action">路线管理</a>
+            </li>
+            <li class="dropdown">
+              <a href="help.htm" class="dropdown-toggle" data-toggle="dropdown">人员管理<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="${contextPath}/front/driver_info_index.action">驾驶员</a>
+                </li>
+                <li>
+                  <a href="${contextPath}/front/driver_info_index.action">班长</a>
+                </li>
+                <li>
+                  <a href="${contextPath}/front/admin_user_info_index.action">管理员</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav pull-right">
+            <li>
+              <a href="profile.htm">@username</a>
+            </li>
+            <li>
+              <a href="login.htm">退出</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <legend>驾驶员</legend>
-    <div>
-      <a href="${contextPath}/front/driver_info_index.action"
-         class="button button-rounded button-flat-action">
-        驾驶员
-      </a>
+  </div>
+  <div class="row">
+    <div class="span3">
+      <div class="well" style="padding: 8px 0;">
+        <ul class="nav nav-list">
+          <li class="nav-header">
+            车辆管理
+          </li>
+          <li class="active">
+            <a href="${contextPath}/businfo/add.jsp"><i class="icon-white icon-home"></i>添加车辆</a>
+          </li>
+          <li>
+            <a href="${contextPath}/front/businfo_index.action"><i class="icon-folder-open"></i>查看车辆</a>
+          </li>
+          <li class="nav-header">
+            站点管理
+          </li>
+          <li>
+            <a href="${contextPath}/station_info/add.jsp"><i class="icon-user"></i>添加站点</a>
+          </li>
+          <li>
+            <a href="${contextPath}/front/station_info_index.action"><i class="icon-cog"></i>查看站点</a>
+          </li>
+          <li class="nav-header">
+            路线管理
+          </li>
+          <li>
+            <a href="${contextPath}/line_info/add.jsp"><i class="icon-user"></i>添加站点</a>
+          </li>
+          <li>
+            <a href="${contextPath}/front/line_info_index.action"><i class="icon-cog"></i>查看站点</a>
+          </li>
+          <li class="nav-header">
+            人员管理
+          </li>
+          <li>
+            <a href="${contextPath}/front/driver_info_index.action"><i class="icon-user"></i>驾驶员</a>
+          </li>
+          <li>
+            <a href="${contextPath}/front/driver_info_index.action"><i class="icon-cog"></i>班长</a>
+          </li>
+          <li>
+            <a href="${contextPath}/front/admin_user_info_index.action"><i class="icon-cog"></i>管理员</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <legend>站点信息</legend>
-    <div>
-      <a href="${contextPath}/front/station_info_index.action"
-         class="button button-rounded button-flat-action">
-        站点信息
-      </a>
+    <div class="span9">
+      <h1>
+        首页
+      </h1>
+      <div class="hero-unit">
+        <h1>
+          Welcome!
+        </h1>
+        <p>
+          欢迎使用香河社区班车管理系统！
+        </p>
+      </div>
     </div>
-    <legend>路线信息</legend>
-    <div>
-      <a href="${contextPath}/front/line_info_index.action"
-         class="button button-rounded button-flat-action">
-        路线信息
-      </a>
-    </div>
-    <legend>附件信息</legend>
-    <div>
-      <a href="${contextPath}/front/attachment_info_index.action"
-         class="button button-rounded button-flat-action">
-        附件信息
-      </a>
-    </div>
-    <legend>管理员</legend>
-    <div>
-      <a href="${contextPath}/front/admin_user_info_index.action"
-         class="button button-rounded button-flat-action">
-        管理员
-      </a>
-    </div>
-  </fieldset>
+  </div>
 </div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/site.js"></script>
 </body>
 </html>
